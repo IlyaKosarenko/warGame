@@ -3,6 +3,8 @@ package wargame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,15 +12,17 @@ public class LancerTest {
     @Test
     @DisplayName("Lancer vs warrior, Knight: False")
     void test1() {
-        Army army1 = new Army();
-        Army army2 = new Army();
-        army1.addUnits(Entity.Type.WARRIOR, 1);
-        army1.addUnits(Entity.Type.KNIGHT, 1);
-        army2.addUnits(Entity.Type.LANCER, 1);
+          Army army1 = new Army();
+          Army army2 = new Army();
+          army1.addUnits(Entity.Type.WARRIOR, 1);
+          army1.addUnits(Entity.Type.KNIGHT, 1);
+          army2.addUnits(Entity.Type.LANCER, 1);
 
         boolean res = Battle.fight(army2, army1);
 
         assertFalse(res);
+
+
     }
 
     @Test

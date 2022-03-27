@@ -16,5 +16,9 @@ public class Lancer extends Warrior {
     @Override
     public void giveDamage(Warrior warrior) {
         warrior.takeDamage(this.getDamage());
+        if(warrior.getBehindWarrior() != null && warrior.getBehindWarrior().isAlive()) {
+            warrior.getBehindWarrior().takeDamage(this.getDamage()/2);
+        }
     }
+
 }

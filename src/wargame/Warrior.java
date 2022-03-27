@@ -9,9 +9,18 @@ import static wargame.Vampire.newVampire;
 public class Warrior implements Entity, HasAttack {
     private int health = 50;
     private int attack = 5;
+    private Warrior behindWarrior = null;
 
     public Warrior() {
 
+    }
+
+    public Warrior getBehindWarrior() {
+        return behindWarrior;
+    }
+
+    public void setBehindWarrior(Warrior behindWarrior) {
+        this.behindWarrior = behindWarrior;
     }
 
     public static Warrior newWarrior() {
