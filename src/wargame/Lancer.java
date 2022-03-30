@@ -7,6 +7,7 @@ import java.util.Queue;
 public class Lancer extends Warrior {
     public Lancer() {
         this.setDamage(6);
+        this.setInitialHealth(50);
     }
 
     public static Lancer newLancer() {
@@ -20,6 +21,9 @@ public class Lancer extends Warrior {
 
         if(warrior.getBehindWarrior() != null && warrior.getBehindWarrior().isAlive()) {
             warrior.getBehindWarrior().takeDamage((hp1 - warrior.getHealth()) / 2);
+        }
+        if(this.getBehindWarrior() instanceof Healer) {
+            ((Healer) this.getBehindWarrior()).heal(this);
         }
     }
 

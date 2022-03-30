@@ -6,6 +6,7 @@ public class Defender extends Warrior {
     public Defender() {
         this.setDamage(3);
         this.setHealth(60);
+        this.setInitialHealth(60);
     }
 
 

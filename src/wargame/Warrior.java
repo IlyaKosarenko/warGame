@@ -2,17 +2,27 @@ package wargame;
 
 
 import static wargame.Defender.newDefender;
+import static wargame.Healer.newHealer;
 import static wargame.Knight.newKnight;
 import static wargame.Lancer.newLancer;
 import static wargame.Vampire.newVampire;
 
 public class Warrior implements Entity, HasAttack {
+    private int initialHealth = 50;
     private int health = 50;
     private int attack = 5;
     private Warrior behindWarrior = null;
 
     public Warrior() {
 
+    }
+
+    public int getInitialHealth() {
+        return initialHealth;
+    }
+
+    public void setInitialHealth(int initialHealth) {
+        this.initialHealth = initialHealth;
     }
 
     public Warrior getBehindWarrior() {
@@ -35,6 +45,7 @@ public class Warrior implements Entity, HasAttack {
             case DEFENDER -> newDefender();
             case VAMPIRE -> newVampire();
             case LANCER -> newLancer();
+            case HEALER -> newHealer();
         };
     }
     @Override
@@ -45,6 +56,9 @@ public class Warrior implements Entity, HasAttack {
     @Override
     public void giveDamage(Warrior warrior) {
         warrior.takeDamage(this.getDamage());
+        if(this.behindWarrior instanceof Healer) {
+            ((Healer) behindWarrior).heal(this);
+        }
     }
 
     @Override
@@ -69,5 +83,8 @@ public class Warrior implements Entity, HasAttack {
     protected void setHealth(int health) {
         this.health = health;
     }
+
+    //protected void heal(Warrior warrior, Healer healer) {}
+
 
 }
