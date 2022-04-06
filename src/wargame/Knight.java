@@ -8,7 +8,4 @@ public class Knight extends Warrior {
         this.setInitialHealth(50);
     }
 
-    public static Knight newKnight() {
-        return new Knight();
-    }
 }

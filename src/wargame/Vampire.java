@@ -7,17 +7,10 @@ public class Vampire extends Warrior {
         this.setInitialHealth(50);
     }
 
-    public static Vampire newVampire() {
-        return new Vampire();
-    }
-
     @Override
     public void giveDamage(Warrior warrior) {
         int hp1 = warrior.getHealth();
-        warrior.takeDamage(this.getDamage());
+        super.giveDamage(warrior);
         this.setHealth(this.getHealth() + (hp1 - warrior.getHealth()) * VAMPIRISM / 100);
-        if(this.getBehindWarrior() instanceof Healer) {
-            ((Healer) this.getBehindWarrior()).heal(this);
-        }
     }
 }

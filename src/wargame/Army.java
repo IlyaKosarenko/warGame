@@ -4,7 +4,7 @@ package wargame;
 import java.util.*;
 
 public class Army {
-    ArrayDeque<Warrior> queue = new ArrayDeque<>();
+    Queue<Warrior> queue = new LinkedList<>();
 
     public void addUnits(Entity.Type type, int quantity) {
         for (int i = 0; i < quantity; i++) {
@@ -32,4 +32,13 @@ public class Army {
             iterator.next().setBehindWarrior(iterator1.next());
         }
     }
+    public void setBehindsNull() {
+        for(var el: queue) {
+            el.setBehindWarrior(null);
+        }
+        for(var el: queue) {
+            el.setBehindWarrior(null);
+        }
+    }
+
 }

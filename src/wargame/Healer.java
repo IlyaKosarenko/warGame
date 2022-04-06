@@ -1,7 +1,7 @@
 package wargame;
 
 public class Healer extends Warrior {
-    private static final int heal = 2;
+    private static final int HEAL = 2;
     private int maxAids = 200;
 
     public Healer() {
@@ -10,16 +10,12 @@ public class Healer extends Warrior {
         this.setInitialHealth(60);
     }
 
-    public static Healer newHealer() {
-        return new Healer();
-    }
-
     public void heal(Warrior warrior) {
         if(maxAids > 0) {
-            if (warrior.getHealth() > warrior.getInitialHealth() - 2) {
+            if(warrior.getHealth() > getInitialHealth() - HEAL) {
                 warrior.setHealth(warrior.getInitialHealth());
             } else {
-                warrior.setHealth(warrior.getHealth() + 2);
+                warrior.setHealth(warrior.getHealth() + HEAL);
             }
             maxAids--;
         }

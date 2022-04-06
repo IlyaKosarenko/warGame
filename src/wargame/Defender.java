@@ -9,11 +9,6 @@ public class Defender extends Warrior {
         this.setInitialHealth(60);
     }
 
-
-    public static Defender newDefender() {
-        return new Defender();
-    }
-
     @Override
     public void takeDamage(int damage) {
         if (damage > DEFENSE) {

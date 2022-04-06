@@ -1,12 +1,5 @@
 package wargame;
 
-
-import static wargame.Defender.newDefender;
-import static wargame.Healer.newHealer;
-import static wargame.Knight.newKnight;
-import static wargame.Lancer.newLancer;
-import static wargame.Vampire.newVampire;
-
 public class Warrior implements Entity, HasAttack {
     private int initialHealth = 50;
     private int health = 50;
@@ -33,19 +26,15 @@ public class Warrior implements Entity, HasAttack {
         this.behindWarrior = behindWarrior;
     }
 
-    public static Warrior newWarrior() {
-        return new Warrior();
-    }
-
 
     public static Warrior of(Type type) {
         return switch (type) {
-            case WARRIOR -> newWarrior();
-            case KNIGHT -> newKnight();
-            case DEFENDER -> newDefender();
-            case VAMPIRE -> newVampire();
-            case LANCER -> newLancer();
-            case HEALER -> newHealer();
+            case WARRIOR -> new Warrior();
+            case KNIGHT -> new Knight();
+            case DEFENDER -> new Defender();
+            case VAMPIRE -> new Vampire();
+            case LANCER -> new Lancer();
+            case HEALER -> new Healer();
         };
     }
     @Override
@@ -83,8 +72,6 @@ public class Warrior implements Entity, HasAttack {
     protected void setHealth(int health) {
         this.health = health;
     }
-
-    //protected void heal(Warrior warrior, Healer healer) {}
 
 
 }
