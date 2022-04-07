@@ -16,4 +16,8 @@ public class Defender extends Warrior {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Defender(" + getHealth() + " hp)";
+    }
 }

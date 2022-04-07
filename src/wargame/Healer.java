@@ -21,4 +21,9 @@ public class Healer extends Warrior {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Healer(" + getHealth() + " hp)";
+    }
+
 }

@@ -9,7 +9,6 @@ public class Army {
     public void addUnits(Entity.Type type, int quantity) {
         for (int i = 0; i < quantity; i++) {
             queue.add(Warrior.of(type));
-            setBehinds();
         }
     }
 
@@ -40,5 +39,19 @@ public class Army {
             el.setBehindWarrior(null);
         }
     }
+    Iterator<Warrior> iterator() {
+        return new armyIterator();
+    }
+    private class armyIterator implements Iterator<Warrior>{
+        Iterator<Warrior> it = queue.iterator();
+        @Override
+        public boolean hasNext() {
+            return it.hasNext();
+        }
 
+        @Override
+        public Warrior next() {
+            return it.next();
+        }
+    }
 }

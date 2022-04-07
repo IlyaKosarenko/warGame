@@ -1,22 +1,25 @@
 package wargame;
-
-import java.util.Iterator;
+import java.util.logging.*;
 
 public class Battle {
     Battle() {
 
     }
+    public static final Logger logger = Logger.getLogger(Battle.class.getName());
 
     public static boolean fight(Warrior w1, Warrior w2) {
+        logger.info("Fight: " + w1.toString() + " vs " + w2.toString());
         while(true) {
             if(w1.isAlive()) {
                 w1.giveDamage(w2);
             } else {
+                logger.info(w2.toString() + " won");
                 return false;
             }
             if (w2.isAlive()) {
                 w2.giveDamage(w1);
             } else {
+                logger.info(w1.toString() + " won");
                 return true;
             }
         }

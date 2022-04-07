@@ -8,4 +8,8 @@ public class Knight extends Warrior {
         this.setInitialHealth(50);
     }
 
+    @Override
+    public String toString() {
+        return "Knight(" + getHealth() + " hp)";
+    }
 }

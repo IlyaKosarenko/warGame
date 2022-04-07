@@ -13,4 +13,9 @@ public class Vampire extends Warrior {
         super.giveDamage(warrior);
         this.setHealth(this.getHealth() + (hp1 - warrior.getHealth()) * VAMPIRISM / 100);
     }
+
+    @Override
+    public String toString() {
+        return "Vampire(" + getHealth() + " hp)";
+    }
 }

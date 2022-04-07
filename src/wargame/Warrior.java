@@ -73,5 +73,8 @@ public class Warrior implements Entity, HasAttack {
         this.health = health;
     }
 
-
+    @Override
+    public String toString() {
+        return "Warrior(" + getHealth() + " hp)";
+    }
 }

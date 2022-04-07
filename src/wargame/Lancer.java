@@ -16,4 +16,8 @@ public class Lancer extends Warrior {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Lancer(" + getHealth() + " hp)";
+    }
 }
